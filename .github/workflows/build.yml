@@ -14,6 +14,7 @@ jobs:
         run: |
           unzip -q Curios-Fabric-stage1.zip
           cd Curios-1.21.1
+          sed -i '/^dependencies {/a\    compileOnly "com.google.code.findbugs:jsr305:3.0.2"' fabric/build.gradle
           chmod +x gradlew
           ./gradlew :fabric:build --stacktrace
       - uses: actions/upload-artifact@v4
